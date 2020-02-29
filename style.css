@@ -1,0 +1,98 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* .field {
+  height: 700px;
+  width: 700px;
+  border-radius: 50px;
+  background: #eeeeee;
+  box-shadow:  25px 25px 60px #cacaca, 
+              -25px -25px 60px #ffffff;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+} */
+
+.board {
+  height: 700px;
+  width: 700px;
+  border-radius: 25px;
+  background: #eeeeee;
+  box-shadow: 25px 25px 50px #cacaca, -25px -25px 50px #ffffff;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.board * {
+  height: 200px;
+  width: 200px;
+  border-radius: 10px;
+  background: #eeeeee;
+  box-shadow: 5px 5px 10px #cacaca, -5px -5px 10px #ffffff;
+}
+
+.cell {
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 100px;
+  color: grey;
+  justify-content: center;
+  align-items: center;
+}
+
+#c1 {
+  justify-self: right;
+  align-self: flex-end;
+}
+
+#c2 {
+  justify-self: center;
+  align-self: flex-end;
+}
+
+#c3 {
+  justify-self: left;
+  align-self: flex-end;
+}
+
+#c4 {
+  justify-self: right;
+  align-self: center;
+}
+
+#c5 {
+  justify-self: center;
+  align-self: center;
+}
+
+#c6 {
+  justify-self: left;
+  align-self: center;
+}
+
+#c7 {
+  justify-self: right;
+  align-self: flex-start;
+}
+
+#c8 {
+  justify-self: center;
+  align-self: flex-start;
+}
+
+#c9 {
+  justify-self: left;
+  align-self: flex-start;
+}
