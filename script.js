@@ -14,10 +14,10 @@ const cells = {
   c9: document.querySelector('#c9'),
 };
 
-const field = (state) => ({ state });
+const field = (state, turn) => ({ state, turn });
 const player = (name) => ({ name });
 
-const emptyBoard = field(['', '', '', '', '', '', '', '', '']);
+const emptyBoard = field(['', '', '', '', '', '', '', '', ''], 1);
 
 const render = (() => {
   reStart.addEventListener('click', () => {
@@ -28,15 +28,16 @@ const render = (() => {
     }
   });
   for (let i = 0; i < allCells.length; i++) {
-    const turn = 1 + i;
     cells[`c${i + 1}`].addEventListener('click', (e) => {
       e.target.style.boxShadow = 'inset 5px 5px 10px #cacaca, inset -5px -5px 10px #ffffff';
       if (emptyBoard.state[`${i}`] !== '') {
         alert('This field is already taken. Choose another one!');
-      } else if (turn % 2 !== 0) {
+      } else if (emptyBoard.turn % 2 !== 0) {
         emptyBoard.state[`${i}`] = 'X';
+        emptyBoard.turn += 1;
       } else {
         emptyBoard.state[`${i}`] = 'O';
+        emptyBoard.turn += 1;
       }
       cells[`c${i + 1}`].innerHTML = emptyBoard.state[i];
     });
