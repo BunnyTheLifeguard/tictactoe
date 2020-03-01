@@ -1,4 +1,5 @@
+## Work in progress:
 # Tic Tac Toe
-A simple browsergame of Tic Tac Toe using JavaScript, HTML & CSS
+A simple browsergame of Tic Tac Toe using vanilla JavaScript, HTML & CSS.
 
-[View in Browser]()
+[View in Browser](https://bunnythelifeguard.github.io/tictactoe/)
