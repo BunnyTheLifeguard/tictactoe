@@ -12,6 +12,11 @@ body {
   background:#eee;
 }
 
+.container {
+  display: grid;
+  grid-template-rows: 10fr 1fr 1fr;
+}
+
 .board {
   height: 700px;
   width: 700px;
@@ -86,4 +91,19 @@ body {
 #c9 {
   justify-self: left;
   align-self: flex-start;
+}
+
+.start {
+  justify-self: center;
+  grid-row: 3;
+  border-color: transparent;
+  border-radius: 7px;
+  background: #eeeeee;
+  box-shadow:  5px 5px 10px #cacaca, 
+              -5px -5px 10px #ffffff;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(180, 180, 180);
+  /* text-shadow: 1px 1px white, -1px -1px #b6b6b6; */
 }

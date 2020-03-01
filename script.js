@@ -1,5 +1,6 @@
 const board = document.querySelector('.board');
 const allCells = board.children;
+const reStart = document.querySelector('.start');
 
 const cells = {
   c1: document.querySelector('#c1'),
@@ -19,6 +20,13 @@ const player = (name) => ({ name });
 const emptyBoard = field(['', '', '', '', '', '', '', '', '']);
 
 const render = (() => {
+  reStart.addEventListener('click', () => {
+    emptyBoard.state = ['', '', '', '', '', '', '', '', ''];
+    for (let i = 0; i < allCells.length; i++) {
+      cells[`c${i + 1}`].innerHTML = emptyBoard.state[i];
+      cells[`c${i + 1}`].style.boxShadow = '5px 5px 10px #cacaca, -5px -5px 10px #fff';
+    }
+  });
   for (let i = 0; i < allCells.length; i++) {
     cells[`c${i + 1}`].addEventListener('click', (e) => {
       e.target.style.boxShadow = 'inset 5px 5px 10px #cacaca, inset -5px -5px 10px #ffffff';
