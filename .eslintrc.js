@@ -17,5 +17,6 @@ module.exports = {
   rules: {
     'no-plusplus': 0,
     'no-return-assign': 0,
+    'no-mixed-operators': 0,
   },
 };
