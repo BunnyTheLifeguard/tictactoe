@@ -28,12 +28,15 @@ const render = (() => {
     }
   });
   for (let i = 0; i < allCells.length; i++) {
+    const turn = 1 + i;
     cells[`c${i + 1}`].addEventListener('click', (e) => {
       e.target.style.boxShadow = 'inset 5px 5px 10px #cacaca, inset -5px -5px 10px #ffffff';
       if (emptyBoard.state[`${i}`] !== '') {
         alert('This field is already taken. Choose another one!');
-      } else {
+      } else if (turn % 2 !== 0) {
         emptyBoard.state[`${i}`] = 'X';
+      } else {
+        emptyBoard.state[`${i}`] = 'O';
       }
       cells[`c${i + 1}`].innerHTML = emptyBoard.state[i];
     });
