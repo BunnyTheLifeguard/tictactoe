@@ -1,6 +1,8 @@
 const board = document.querySelector('.board');
 const allCells = board.children;
 const reStart = document.querySelector('.start');
+const turnP1 = document.querySelector('#turnP1');
+const turnP2 = document.querySelector('#turnP2');
 
 const cells = {
   c1: document.querySelector('#c1'),
@@ -15,7 +17,7 @@ const cells = {
 };
 
 const field = (state, turn) => ({ state, turn });
-const player = (name) => ({ name });
+const player = (name, score) => ({ name, score });
 
 const emptyBoard = field(['', '', '', '', '', '', '', '', ''], 1);
 
@@ -25,6 +27,8 @@ const render = (() => {
     for (let i = 0; i < allCells.length; i++) {
       cells[`c${i + 1}`].innerHTML = emptyBoard.state[i];
       cells[`c${i + 1}`].style.boxShadow = '5px 5px 10px #cacaca, -5px -5px 10px #fff';
+      turnP1.innerHTML = 'Player 1 starts';
+      turnP2.innerHTML = '';
     }
   });
   for (let i = 0; i < allCells.length; i++) {
@@ -35,9 +39,13 @@ const render = (() => {
       } else if (emptyBoard.turn % 2 !== 0) {
         emptyBoard.state[`${i}`] = 'X';
         emptyBoard.turn += 1;
+        turnP1.innerHTML = '';
+        turnP2.innerHTML = 'Your turn';
       } else {
         emptyBoard.state[`${i}`] = 'O';
         emptyBoard.turn += 1;
+        turnP1.innerHTML = 'Your turn';
+        turnP2.innerHTML = '';
       }
       cells[`c${i + 1}`].innerHTML = emptyBoard.state[i];
     });
