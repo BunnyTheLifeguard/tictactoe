@@ -1,3 +1,5 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-return-assign */
 const board = document.querySelector('.board');
 const allCells = board.children;
 
@@ -19,14 +21,12 @@ const player = (name) => ({ name });
 const emptyBoard = field(['', '', '', '', '', '', '', '', '']);
 const fullBoard = field(['X', 'X', 'X', 'O', 'O', 'O', 'X', 'X', 'X']);
 
-const listen = (() => {
-  for (let i = 0; i < allCells.length; i++) {
-    cells[`c${i + 1}`].addEventListener('click', (e) => e.target.style.boxShadow = 'inset 5px 5px 10px #cacaca, inset -5px -5px 10px #ffffff');
-  }
-})();
-
 const render = (() => {
   for (let i = 0; i < allCells.length; i++) {
-    cells[`c${i + 1}`].innerHTML = fullBoard.state[i];
+    cells[`c${i + 1}`].addEventListener('click', (e) => {
+      e.target.style.boxShadow = 'inset 5px 5px 10px #cacaca, inset -5px -5px 10px #ffffff';
+      emptyBoard.state[`${i}`] = 'X';
+      cells[`c${i + 1}`].innerHTML = emptyBoard.state[i];
+    });
   }
 })();
