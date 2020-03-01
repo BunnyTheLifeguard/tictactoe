@@ -1,5 +1,3 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable no-return-assign */
 const board = document.querySelector('.board');
 const allCells = board.children;
 
@@ -19,13 +17,16 @@ const field = (state) => ({ state });
 const player = (name) => ({ name });
 
 const emptyBoard = field(['', '', '', '', '', '', '', '', '']);
-const fullBoard = field(['X', 'X', 'X', 'O', 'O', 'O', 'X', 'X', 'X']);
 
 const render = (() => {
   for (let i = 0; i < allCells.length; i++) {
     cells[`c${i + 1}`].addEventListener('click', (e) => {
       e.target.style.boxShadow = 'inset 5px 5px 10px #cacaca, inset -5px -5px 10px #ffffff';
-      emptyBoard.state[`${i}`] = 'X';
+      if (emptyBoard.state[`${i}`] !== '') {
+        alert('This field is already taken. Choose another one!');
+      } else {
+        emptyBoard.state[`${i}`] = 'X';
+      }
       cells[`c${i + 1}`].innerHTML = emptyBoard.state[i];
     });
   }
