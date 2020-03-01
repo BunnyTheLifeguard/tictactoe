@@ -3,6 +3,7 @@ const allCells = board.children;
 const reStart = document.querySelector('.start');
 const turnP1 = document.querySelector('#turnP1');
 const turnP2 = document.querySelector('#turnP2');
+const msg = document.querySelector('.msg');
 
 const cells = {
   c1: document.querySelector('#c1'),
@@ -24,6 +25,8 @@ const emptyBoard = field(['', '', '', '', '', '', '', '', ''], 1);
 const render = (() => {
   reStart.addEventListener('click', () => {
     emptyBoard.state = ['', '', '', '', '', '', '', '', ''];
+    msg.innerHTML = '';
+
     for (let i = 0; i < allCells.length; i++) {
       cells[`c${i + 1}`].innerHTML = emptyBoard.state[i];
       cells[`c${i + 1}`].style.boxShadow = '5px 5px 10px #cacaca, -5px -5px 10px #fff';
@@ -31,6 +34,7 @@ const render = (() => {
       turnP2.innerHTML = '';
     }
   });
+
   for (let i = 0; i < allCells.length; i++) {
     cells[`c${i + 1}`].addEventListener('click', (e) => {
       e.target.style.boxShadow = 'inset 5px 5px 10px #cacaca, inset -5px -5px 10px #ffffff';
