@@ -29,6 +29,7 @@ const p2 = player(player2.value, 0);
 const game = (() => {
   reStart.addEventListener('click', () => {
     gameState.state = ['', '', '', '', '', '', '', '', ''];
+    gameState.turn = 1;
     msg.innerHTML = '';
     p1.name = player1.value;
     p2.name = player2.value;
@@ -69,6 +70,7 @@ const game = (() => {
         || gameState.state[2] === 'X' && gameState.state[4] === 'X' && gameState.state[6] === 'X') {
         turnP2.innerHTML = '';
         msg.innerHTML = `${p1.name} won!`;
+        p1.score += 1;
       } else if (
         gameState.state[0] === 'O' && gameState.state[1] === 'O' && gameState.state[2] === 'O'
         || gameState.state[3] === 'O' && gameState.state[4] === 'O' && gameState.state[5] === 'O'
@@ -80,6 +82,7 @@ const game = (() => {
         || gameState.state[2] === 'O' && gameState.state[4] === 'O' && gameState.state[6] === 'O') {
         turnP1.innerHTML = '';
         msg.innerHTML = `${p2.name} won!`;
+        p2.score += 1;
       } else if (
         gameState.state[0] !== '' && gameState.state[1] !== '' && gameState.state[2] !== ''
         && gameState.state[3] !== '' && gameState.state[4] !== '' && gameState.state[5] !== ''
